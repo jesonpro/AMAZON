@@ -28,6 +28,7 @@ const WhatsAlexaDB = config.DATABASE.define('WhatsAlexa', {
         allowNull: false
     }
 });
+//═══════════════════════Data Base
 
 fs.readdirSync('./plugins/sql/').forEach(plugin => {
     if(path.extname(plugin).toLowerCase() == '.js') {
@@ -136,7 +137,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         console.log(
             chalk.green.bold('🎉 BOT IS NOW ACTIVE IN YOUR ACCOUNT!')
         );
-        
+ //═══════════════════════════════Plugging And Commands       
          if (config.LANG == 'EN') {
              await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHello ${conn.user.name}!\n\n*🆘 General Help For You! 🆘*\n\n🔹 *#alive:* Check if the bot is running.\n\n🔹 *#list:* Shows the complete list of commands.\n\n🔹 *#restart:* It Restarts the bot.\n\n🔹 *#shutdown:* It Shutdown/Turn off the bot.\n\n *⚠ Warning, If you shutdown/turn off, there is no command to turn on the bot So You must got to heroku & turn on the worker. ⚠*.\n\nThank You For Using WhatsAlexa 💖`});
              
@@ -147,7 +148,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
              await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nനമസ്കാരം ${conn.user.name}!\n\n*🆘 പൊതുവായ സഹായം 🆘*\n\n🔹 *#alive:* ബോട്ട് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുന്നു.\n\n🔹 *#list:* കമാൻഡുകളുടെ പൂർണ്ണ ലിസ്റ്റ് കാണിക്കുന്നു.\n\n🔹 *#restart:* ഇത് ബോട്ടിനെ പുനരാരംഭിപ്പിക്കുന്നു.\n\n🔹 *#shutdown:* ഇത് ഷട്ട്ഡൗൺ/ബോട്ട് ഓഫ് ചെയ്യുന്നു.\n\n *⚠ മുന്നറിയിപ്പ്, നിങ്ങൾ ഷട്ട്ഡൗൺ/ഓഫ് ചെയ്യുകയാണെങ്കിൽ, ബോട്ട് ഓണാക്കാൻ ഒരു കമാൻഡും ഇല്ല അതിനാൽ നിങ്ങൾ Heroku ഇല്പോയി worker ഓൺ ചെയ്യണം ⚠*.\n\nWhatsAlexa ഉപയോഗിച്ചതിന് നന്ദി 💖`});
         }
     });
-    
+ //═══════════════════════════════WELOCOME MESSAGES   
     setInterval(async () => { 
         if (config.AUTOBIO == 'true') {
             if (conn.user.jid.startsWith('90')) { 
@@ -278,7 +279,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
             }
         }
     }, 7890);
-   
+ //══════════════════════════════════AUTO BIO  
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
 
@@ -294,7 +295,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         } else if (config.BOT_PRESENCE == 'recording') {
             await conn.updatePresence(msg.key.remoteJid, Presence.recording);
         } 
-        
+ //═══════════════════════════════════BOT STATUS       
         if (msg.messageStubType === 32 || msg.messageStubType === 28) {
             // Görüşürüz Mesajı
             var gb = await getMessage(msg.key.remoteJid, 'goodbye');
@@ -316,7 +317,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
             }
             return;
         }
-
+//═══════════════════════════════════WELCOME & GOODBYE
         events.commands.map(
             async (command) =>  {
                 if (msg.message && msg.message.imageMessage && msg.message.imageMessage.caption) {
@@ -372,7 +373,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
                         if (command.deleteCommand && msg.key.fromMe) {
                             await whats.delete(); 
                         }
-                        
+//═══════════════════════════════════════SUDO             
                         try {
                             await command.function(whats, match);
                         } catch (error) {
@@ -391,7 +392,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
             }
         )
     });
-
+//═══════════════════════════════════ERROS MESSAGE & END
     try {
         await conn.connect();
     } catch {
