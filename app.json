@@ -97,7 +97,7 @@
         "WORK_TYPE": {
             "description": "WhatsAlexa Working Type. If you use “public”, everyone can use the bot. Else if you use “private”, only you can use your bot.",
             "required": true,
-            "value": "public"
+            "value": "private"
         },
         "REMOVE_BG_API_KEY": {
             "description": "Type the remove bg api. This is an Important one! ( RemoveBg Api : https://remove.bg  , Type this on the blank )",
