@@ -18,7 +18,7 @@ const heroku = new Heroku({
 let baseURI = '/apps/' + config.HEROKU.APP_NAME;
 
 
-const WhatsAlexaDB = config.DATABASE.define('WhatsAlexa', {
+const amazoneDB = config.DATABASE.define('amazone', {
     info: {
       type: DataTypes.STRING,
       allowNull: false
@@ -66,7 +66,7 @@ async function Alexa () {
     conn.version = [2, 2123, 8]
 
     await config.DATABASE.sync();
-    var StrSes_Db = await WhatsAlexaDB.findAll({
+    var StrSes_Db = await amazoneDB.findAll({
         where: {
           info: 'StringSession'
         }
@@ -89,7 +89,7 @@ async function Alexa () {
 
         const authInfo = conn.base64EncodedAuthInfo();
         if (StrSes_Db.length < 1) {
-            await WhatsAlexaDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
+            await amazoneDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
         } else {
             await StrSes_Db[0].update({ value: Session.createStringSession(authInfo) });
         }
