@@ -80,7 +80,7 @@ WhatsAlexa.addCommand({on: 'text', fromMe: true, deleteCommand: false}, (async (
         AFK.reason = false;
         AFK.isAfk = false;
 
-        await message.client.sendMessage(message.jid,Lang.IM_NOT_AFK,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+        await message.client.sendMessage(message.jid,Lang.IM_NOT_AFK,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: false }})
     }
 }));
 
