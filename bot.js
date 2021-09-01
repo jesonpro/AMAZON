@@ -83,7 +83,7 @@ async function Alexa () {
 
     conn.on ('credentials-updated', async () => {
         console.log(
-            chalk.blueBright.italic('🔁 CHECKING FOR COMMANDS...')
+            chalk.blueBright.italic('🚀checking Command...')
         );
 
         const authInfo = conn.base64EncodedAuthInfo();
@@ -95,20 +95,20 @@ async function Alexa () {
     })    
 
     conn.on('connecting', async () => {
-        console.log(`${chalk.green.bold('WhatAlexa')}
+        console.log(`${chalk.green.bold('AMAZONE👾')}
 ${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
 
-${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
+${chalk.blue.italic('🤖Powered By Amazone')}`);
     });
     
 
     conn.on('open', async () => {
         console.log(
-            chalk.green.bold('🛑 NO COMMANDS FOUND!')
+            chalk.green.bold('🎭Commands Not Found!')
         );
 
         console.log(
-            chalk.blueBright.italic('⬇️ INSTALLING COMMANDS...')
+            chalk.blueBright.italic('🚀Installing Amazone...')
         );
 
         var plugins = await plugindb.PluginDB.findAll();
@@ -124,7 +124,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         });
 
         console.log(
-            chalk.blueBright.italic('✅ COMMANDS INSTALLED SUCCESSFULLY!')
+            chalk.blueBright.italic('👾▷Amazone installed Successfully!')
         );
 
         fs.readdirSync('./plugins').forEach(plugin => {
@@ -134,14 +134,14 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         });
 
         console.log(
-            chalk.green.bold('🎉 BOT IS NOW ACTIVE IN YOUR ACCOUNT!')
+            chalk.green.bold('🌟▶BOT IS NOW ACTIVE IN YOUR ACCOUNT!🌟')
         );
         
          if (config.LANG == 'EN') {
              await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHello ${conn.user.name}!\n\n*🆘 General Help For You! 🆘*\n\n🔹 *#alive:* Check if the bot is running.\n\n🔹 *#list:* Shows the complete list of commands.\n\n🔹 *#restart:* It Restarts the bot.\n\n🔹 *#shutdown:* It Shutdown/Turn off the bot.\n\n *⚠ Warning, If you shutdown/turn off, there is no command to turn on the bot So You must got to heroku & turn on the worker. ⚠*.\n\nThank You For Using WhatsAlexa 💖`});
              
-         } else if (config.LANG == 'ID') {
-             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHalo ${conn.user.name}!\n\n*🆘 Bantuan umum 🆘*\n\n🔹 *#alive:* Periksa apakah bot sedang berjalan.\n\n🔹 *#list:* Menampilkan daftar lengkap perintah.\n\n🔹 *#restart:* Ini me-restart bot.\n\n🔹 *#shutdown:* Ini Matikan/Matikan bot.\n\n *⚠ Peringatan, Jika Anda mematikan/mematikan, tidak ada perintah untuk menghidupkan bot Jadi Anda harus pergi ke heroku & Nyalakan worker. ⚠*.\n\nTerima Kasih Telah Menggunakan WhatsAlexa 💖`});
+         } else if (config.LANG == 'SI') {
+             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `🛸🚀Hey..!!  ${conn.user.name}! \n\n*🧞‍♀️සාදරයෙන් Amazone Alexa වෙත පිලිගන්නවා :|🌼*\n\n*🛸Amozon Alexa ඔබගේ ගිණුමේ දැන් සක්‍රියයි*\n*💠Amazone Alexa පිළිබද සම්පූර්ණ අවබෝධයක් ලබා ගැනීමට 🔶.basichelp විධානය භාවිතා කරන්න...*\n*🌟Amazone Alexa යනූ සීඝ්‍රයෙන් වර්ධනය වන Whatsapp රොබෝවෙකි..Alexa වෙත ලැබෙන නව අංග හා යතාවත්කාලින කිරිම් ලබා ගැනීමට 🔶 .newslist විධානය භාවිතා කරන්න..*\n*🚀මෙය ඔබගේ LOG අංකයයි*\n\n`});
              
          } else {
              await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nനമസ്കാരം ${conn.user.name}!\n\n*🆘 പൊതുവായ സഹായം 🆘*\n\n🔹 *#alive:* ബോട്ട് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുന്നു.\n\n🔹 *#list:* കമാൻഡുകളുടെ പൂർണ്ണ ലിസ്റ്റ് കാണിക്കുന്നു.\n\n🔹 *#restart:* ഇത് ബോട്ടിനെ പുനരാരംഭിപ്പിക്കുന്നു.\n\n🔹 *#shutdown:* ഇത് ഷട്ട്ഡൗൺ/ബോട്ട് ഓഫ് ചെയ്യുന്നു.\n\n *⚠ മുന്നറിയിപ്പ്, നിങ്ങൾ ഷട്ട്ഡൗൺ/ഓഫ് ചെയ്യുകയാണെങ്കിൽ, ബോട്ട് ഓണാക്കാൻ ഒരു കമാൻഡും ഇല്ല അതിനാൽ നിങ്ങൾ Heroku ഇല്പോയി worker ഓൺ ചെയ്യണം ⚠*.\n\nWhatsAlexa ഉപയോഗിച്ചതിന് നന്ദി 💖`});
